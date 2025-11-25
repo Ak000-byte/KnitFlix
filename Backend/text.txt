@@ -1,0 +1,6 @@
+authentication 2 types 
+1. statefull 
+2. stateless
+
+statefull = parking boys has ticket number like Number 24:DlXXXXXX1234 and driver has a parking ticket number 24 
+parking boy has a diary with parking tickets number entries
