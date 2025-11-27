@@ -10,9 +10,4 @@ router.post("/logout" , logout_user);
 router.delete("/delete/:id" , user_delete);
 router.put("/forgot-password/:id" , password_update);
 
-//Admin-Auth
-
-
-
-
 module.exports= router ;

@@ -15,7 +15,7 @@ const Navbar = () => {
 
 
       <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
-        <NavLink to='/' className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? '' : ''}`}>
+        <NavLink to='/' className={({ isActive }) => `flex flex-col items-center gap-1 ${isActive ? '' : ''}` }>
             <p>HOME</p>
             <hr className={({ isActive }) => `w-2/4 border-none h-[1.5px] bg-gray-700 ${isActive ? 'block' : 'hidden'}`} />
         </NavLink>

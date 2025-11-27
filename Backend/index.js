@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require('cors');
 // const cookieParaser = require("cookie-parser");
 // const path = require('path');
 // const passport = require("passport");
@@ -8,13 +9,15 @@ const dotenv = require("dotenv");
 
 const userRouter = require('./src/routes/user_routes');
 const connectdb = require('./config/auth_db');
-require("./src/auth/google_Auth")
+// require("./src/auth/google_Auth")
 
-const app = express() ;
+const app = express();
+app.use(cors({ origin: process.env.CLIENT_URL || "http://localhost:5173", credentials: true }));
+app.use(express.json());
 dotenv.config();
 connectdb();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 // app.use(session({
 //     secret : "mysecret",
 //     resave : false,
@@ -66,9 +69,11 @@ app.use(express.urlencoded({ extended: true }));
 //     })
 // })
 
+app.get('/',(req,res) => {
+    res.send("hello");
+})
 
-
-app.use('/user' , userRouter);
+app.use('/api/auth' , userRouter);
 
 const port = process.env.PORT || 1000 ;
 app.listen(port, () => {
