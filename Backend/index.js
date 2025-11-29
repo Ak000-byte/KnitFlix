@@ -4,8 +4,8 @@ const dotenv = require("dotenv");
 const cors = require('cors');
 // const cookieParaser = require("cookie-parser");
 // const path = require('path');
-// const passport = require("passport");
-// const session = require("express-session")
+const passport = require("passport");
+const session = require("express-session")
 
 const userRouter = require('./src/routes/user_routes');
 const connectdb = require('./config/auth_db');
@@ -18,14 +18,14 @@ dotenv.config();
 connectdb();
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
-// app.use(session({
-//     secret : "mysecret",
-//     resave : false,
-//     saveUninitialized : true,
-// }))
-// app.use(passport.initialize());
-// app.use(passport.session());
-// // app.use(cookieParaser());
+app.use(session({
+    secret : "mysecret",
+    resave : false,
+    saveUninitialized : true,
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(cookieParaser());
 // app.set("view engine" , "ejs");
 // app.set("views" , path.resolve("./src/views"))
 
